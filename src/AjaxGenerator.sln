@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RvaJustin.AjaxGenerator", "RvaJustin.AjaxGenerator\RvaJustin.AjaxGenerator.csproj", "{06B15D5F-83A0-4278-BCB5-4E05CB295DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RvaJustin.AjaxGenerator.AspNet.Core", "RvaJustin.AjaxGenerator.AspNet.Core\RvaJustin.AjaxGenerator.AspNet.Core.csproj", "{B4B97D47-23DC-47E5-BC93-1E2C79A24D58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RvaJustin.AjaxGenerator.AspNet.Mvc", "RvaJustin.AjaxGenerator.AspNet.Mvc\RvaJustin.AjaxGenerator.AspNet.Mvc.csproj", "{B1889333-1880-4591-87FD-28D277DF9DEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{86830A60-4A47-49C8-ACF4-F429ED7E1DB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreWebApp", "Examples\AspNetCoreWebApp\AspNetCoreWebApp.csproj", "{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMvcWebApp", "Examples\AspNetMvcWebApp\AspNetMvcWebApp.csproj", "{982A012B-35DE-434C-B6AF-D79E414DE01C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RvaJustin.AjaxGenerator.OpenApi", "RvaJustin.AjaxGenerator.OpenApi\RvaJustin.AjaxGenerator.OpenApi.csproj", "{5AF2ADCD-A7AE-44DB-A858-78B54A3FCDCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06B15D5F-83A0-4278-BCB5-4E05CB295DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B15D5F-83A0-4278-BCB5-4E05CB295DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B15D5F-83A0-4278-BCB5-4E05CB295DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B15D5F-83A0-4278-BCB5-4E05CB295DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4B97D47-23DC-47E5-BC93-1E2C79A24D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4B97D47-23DC-47E5-BC93-1E2C79A24D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4B97D47-23DC-47E5-BC93-1E2C79A24D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4B97D47-23DC-47E5-BC93-1E2C79A24D58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1889333-1880-4591-87FD-28D277DF9DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1889333-1880-4591-87FD-28D277DF9DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1889333-1880-4591-87FD-28D277DF9DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1889333-1880-4591-87FD-28D277DF9DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{982A012B-35DE-434C-B6AF-D79E414DE01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{982A012B-35DE-434C-B6AF-D79E414DE01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{982A012B-35DE-434C-B6AF-D79E414DE01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{982A012B-35DE-434C-B6AF-D79E414DE01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AF2ADCD-A7AE-44DB-A858-78B54A3FCDCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF2ADCD-A7AE-44DB-A858-78B54A3FCDCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF2ADCD-A7AE-44DB-A858-78B54A3FCDCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF2ADCD-A7AE-44DB-A858-78B54A3FCDCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0084FD13-DF4C-4975-9AFD-058DF5F9FBEF} = {86830A60-4A47-49C8-ACF4-F429ED7E1DB8}
+		{982A012B-35DE-434C-B6AF-D79E414DE01C} = {86830A60-4A47-49C8-ACF4-F429ED7E1DB8}
+	EndGlobalSection
+EndGlobal

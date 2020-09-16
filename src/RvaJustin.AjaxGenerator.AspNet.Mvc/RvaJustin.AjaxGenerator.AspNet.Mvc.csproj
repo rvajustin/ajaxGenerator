@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>8</LangVersion>
+        <TargetFramework>net452</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.JScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+          <HintPath>..\..\..\..\..\..\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\Microsoft.JScript\v4.0_10.0.0.0__b03f5f7f11d50a3a\Microsoft.JScript.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Configuration" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.Abstractions" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\RvaJustin.AjaxGenerator\RvaJustin.AjaxGenerator.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+      <PackageReference Include="Unity" Version="5.11.7" />
+      <PackageReference Include="YUICompressor.NET" Version="3.0.0" />
+    </ItemGroup>
+
+</Project>

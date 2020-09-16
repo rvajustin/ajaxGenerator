@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RvaJustin.AjaxGenerator.AspNet.Core\RvaJustin.AjaxGenerator.AspNet.Core.csproj" />
+      <ProjectReference Include="..\RvaJustin.AjaxGenerator\RvaJustin.AjaxGenerator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.2.3" />
+      <PackageReference Include="NUglify" Version="1.9.4" />
+    </ItemGroup>
+
+</Project>
