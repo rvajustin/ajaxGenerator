@@ -4,10 +4,41 @@
     <projectFile>Examples/AspNetCoreWebApp/AspNetCoreWebApp.csproj</projectFile>
     <projectFile>Examples/AspNetMvcWebApp/AspNetMvcWebApp.csproj</projectFile>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7118d1b5-a98f-4866-8028-9eda4b63fd35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AjaxGenerator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AjaxGenerator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IActionListDiscoveryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IActionListDiscoveryService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcControllerActionBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IAjaxEndpoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IAjaxEndpointListRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Repositories/AjaxEndpointRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/ActionInfoBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/CoreControllerActionBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/CoreActionListDiscoveryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/CoreAjaxEndpointDiscoveryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/AjaxGeneratorConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/AjaxGeneratorConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcActionListDiscoveryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcAjaxEndpointDiscoveryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IActionListDiscoveryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IAjaxEndpointDiscoveryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IActionListRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/AjaxGeneratorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/AjaxGeneratorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/ActionInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/ControllerAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/ActionList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/AjaxEndpointList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Repositories/ActionListRepository.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +60,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/907B86DA-D757-4F8D-8473-D9DBB7F84728/f1/64b491c2/HttpConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03C98CFC-8623-445A-8DB7-B66C6FFA5DEF/44/40419a63/IDependencyResolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03C98CFC-8623-445A-8DB7-B66C6FFA5DEF/d4/953a0697/DependencyResolver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/justi/repos/ajaxGenerator/src/RvaJustin.AjaxGenerator/IActionListDiscoveryService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F385E358-608B-4FF1-871F-D55A439572F9/e8/66bd4dea/Import.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RvaJustin.AjaxGenerator.WebApi/HttpConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03C98CFC-8623-445A-8DB7-B66C6FFA5DEF/31/eb108150/AreaRegistration.cs" root0="SKIP_HIGHLIGHTING" />
@@ -39,14 +71,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/ResourceNames.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/Resources.cs" />
-        <option value="$PROJECT_DIR$/Examples/AspNetCoreWebApp/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IRouter.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Router.cs" />
-        <option value="$PROJECT_DIR$/Examples/AspNetCoreWebApp/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/AjaxInfoBuilder.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/ActionInfoBuilder.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ScriptTemplates/core.js" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/Internal/Constants.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IScriptCompressor.cs" />
@@ -64,10 +88,8 @@
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/ActionInfoBuilder.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/ScriptCompressorService.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/RouterService.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/ServiceCollectionExtensions.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/AjaxGeneratorMiddlewareExtensions.cs" />
         <option value="$PROJECT_DIR$/Examples/AspNetCoreWebApp/Startup.cs" />
-        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/ActionInfoBuilder.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/AjaxGeneratorMiddleware.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/ScriptCompressorService.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/RouterService.cs" />
@@ -90,6 +112,16 @@
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcActionListDiscoveryService.cs" />
         <option value="$PROJECT_DIR$/Examples/AspNetMvcWebApp/Global.asax.cs" />
         <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IActionListDiscoveryService.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IAjaxEndpointDiscoveryService.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/AjaxEndpointList.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/ServiceCollectionExtensions.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/AjaxEndpoint.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/IAjaxEndpoint.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator/ObjectModel/ControllerAction.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Core/Services/CoreControllerActionBuilder.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/ActionInfoBuilder.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcControllerActionBuilder.cs" />
+        <option value="$PROJECT_DIR$/RvaJustin.AjaxGenerator.AspNet.Mvc/Services/MvcAjaxEndpointDiscoveryService.cs" />
       </list>
     </option>
   </component>
@@ -189,8 +221,16 @@
       <updated>1599851279897</updated>
       <workItem from="1599851282431" duration="3723000" />
       <workItem from="1600087906766" duration="41772000" />
-      <workItem from="1600218060428" duration="18000" />
+      <workItem from="1600218060428" duration="1280000" />
     </task>
+    <task id="LOCAL-00001" summary="chore: aligning local git repo">
+      <created>1600218113156</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600218113156</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,11 +238,24 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="chore: aligning local git repo" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: aligning local git repo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="3740" y="-10" width="440" height="160" key="AddNewResourceElement" timestamp="1600131914516">
@@ -331,6 +384,10 @@
     <state x="3461" y="-290" key="SettingsEditor/0.0.3000.1960/3000.-454.1920.1040/-1920.-454.1920.1040@3000.-454.1920.1040" timestamp="1600107612741" />
     <state x="-1459" y="-290" key="SettingsEditor/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@-1920.-454.1920.1040" timestamp="1600218076580" />
     <state x="3461" y="-290" key="SettingsEditor/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@3000.-454.1920.1040" timestamp="1600179177114" />
+    <state x="-1368" y="-206" key="Vcs.Push.Dialog.v2" timestamp="1600218118680">
+      <screen x="-1920" y="-454" width="1920" height="1040" />
+    </state>
+    <state x="-1368" y="-206" key="Vcs.Push.Dialog.v2/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@-1920.-454.1920.1040" timestamp="1600218118680" />
     <state width="968" height="522" key="XDebugger.FullValuePopup" timestamp="1600178739934">
       <screen x="3000" y="-454" width="1920" height="1040" />
     </state>
@@ -340,10 +397,10 @@
     </state>
     <state x="3593" y="-246" width="733" height="624" key="find.popup/0.0.3000.1960/3000.-454.1920.1040/-1920.-454.1920.1040@3000.-454.1920.1040" timestamp="1600091835754" />
     <state x="3593" y="-246" width="733" height="624" key="find.popup/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@3000.-454.1920.1040" timestamp="1600178545621" />
-    <state x="-1297" y="-229" width="672" height="678" key="search.everywhere.popup" timestamp="1600216158992">
+    <state x="-1297" y="-229" width="672" height="678" key="search.everywhere.popup" timestamp="1600280010551">
       <screen x="-1920" y="-454" width="1920" height="1040" />
     </state>
     <state x="3623" y="-229" width="672" height="678" key="search.everywhere.popup/0.0.2000.1293/3000.-454.1920.1040/-1920.-454.1920.1040@3000.-454.1920.1040" timestamp="1599853821079" />
-    <state x="-1297" y="-229" width="672" height="678" key="search.everywhere.popup/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@-1920.-454.1920.1040" timestamp="1600216158992" />
+    <state x="-1297" y="-229" width="672" height="678" key="search.everywhere.popup/3000.-454.1920.1040/-1920.-454.1920.1040/0.0.3000.1960@-1920.-454.1920.1040" timestamp="1600280010551" />
   </component>
 </project>

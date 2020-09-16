@@ -6,19 +6,19 @@ using RvaJustin.AjaxGenerator.ObjectModel;
 
 namespace RvaJustin.AjaxGenerator.AspNet.Core.Services
 {
-    public class CoreActionListDiscoveryService : IActionListDiscoveryService
+    public class CoreAjaxEndpointDiscoveryService : IAjaxEndpointDiscoveryService
     {
         private readonly IActionDescriptorCollectionProvider actionDescriptorCollectionProvider;
 
-        public CoreActionListDiscoveryService(
+        public CoreAjaxEndpointDiscoveryService(
             IActionDescriptorCollectionProvider actionDescriptorCollectionProvider)
         {
             this.actionDescriptorCollectionProvider = actionDescriptorCollectionProvider;
         }
 
-        public IDictionary<string, ActionList> Discover()
+        public IDictionary<string, AjaxEndpointList> Discover()
         {
-            var dictionary = new Dictionary<string, ActionList>();
+            var dictionary = new Dictionary<string, AjaxEndpointList>();
 
             var actionDescriptors =
                 GetActionDescriptors()
@@ -27,14 +27,14 @@ namespace RvaJustin.AjaxGenerator.AspNet.Core.Services
 
             foreach (var actionDescriptor in actionDescriptors)
             {
-                if (!ActionInfoBuilder.TryBuild(actionDescriptor, out var method))
+                if (!CoreControllerActionBuilder.TryBuild(actionDescriptor, out var method))
                 {
                     continue;
                 }
                 
                 if (!dictionary.ContainsKey(method.AjaxBehavior.Collection))
                 {
-                    dictionary[method.AjaxBehavior.Collection] = new ActionList();
+                    dictionary[method.AjaxBehavior.Collection] = new AjaxEndpointList();
                 }
 
                 dictionary[method.AjaxBehavior.Collection].Add(method);

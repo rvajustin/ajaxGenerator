@@ -12,8 +12,8 @@ public static class AjaxGeneratorServiceCollectionExtensions
         this IServiceCollection services,
         Action<IAjaxGeneratorConfiguration> configureService)
     {
-        services.AddSingleton<IActionListDiscoveryService, CoreActionListDiscoveryService>();
-        services.AddSingleton<IActionListRepository, ActionListRepository>();
+        services.AddSingleton<IAjaxEndpointDiscoveryService, CoreAjaxEndpointDiscoveryService>();
+        services.AddSingleton<IAjaxEndpointListRepository, AjaxEndpointRepository>();
         services.AddSingleton<IScriptCompressor, CoreScriptCompressorService>();
         services.AddScoped<AjaxGeneratorHelper>();
         services.AddScoped<IAjaxGeneratorService>(serviceProvider

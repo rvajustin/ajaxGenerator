@@ -5,11 +5,11 @@ using RvaJustin.AjaxGenerator.ObjectModel;
 
 namespace RvaJustin.AjaxGenerator.AspNet.Core.Services
 {
-    internal static class ActionInfoBuilder
+    internal static class CoreControllerActionBuilder
     {
-        public static bool TryBuild(ControllerActionDescriptor actionDescriptor, out ActionInfo actionInfo)
+        public static bool TryBuild(ControllerActionDescriptor actionDescriptor, out ControllerAction controllerAction)
         {
-            actionInfo = default;
+            controllerAction = default;
 
             var ajaxBehavior = actionDescriptor.MethodInfo
                 .GetCustomAttributes(typeof(AjaxAttribute), true).OfType<AjaxAttribute>()
@@ -22,7 +22,7 @@ namespace RvaJustin.AjaxGenerator.AspNet.Core.Services
 
             var route = actionDescriptor.AttributeRouteInfo?.Template;
 
-            actionInfo = new ActionInfo(
+            controllerAction = new ControllerAction(
                 actionDescriptor.Id,
                 route,
                 string.Empty,

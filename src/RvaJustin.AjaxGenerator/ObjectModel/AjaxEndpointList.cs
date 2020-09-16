@@ -2,5 +2,5 @@
 
 namespace RvaJustin.AjaxGenerator.ObjectModel
 {
-    public sealed class ActionList : ConcurrentBag<ActionInfo> { }
+    public sealed class AjaxEndpointList : ConcurrentBag<ControllerAction> { }
 }

@@ -7,9 +7,9 @@ using RvaJustin.AjaxGenerator.Attributes;
 namespace RvaJustin.AjaxGenerator.ObjectModel
 {
     [DebuggerDisplay("Action {Action} for {AjaxBehavior.Methods[0],nq} in {Controller}")]
-    public sealed class ActionInfo
+    public sealed class ControllerAction : IAjaxEndpoint
     {
-        public ActionInfo(
+        public ControllerAction(
             string id,
             string route,
             string area,

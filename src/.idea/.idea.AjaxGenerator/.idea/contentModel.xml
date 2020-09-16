@@ -11,7 +11,7 @@
     <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\javascript\typings\express\4.16.1\node_modules\@types\qs" t="IncludeRecursive" />
     <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\javascript\typings\express\4.16.1\node_modules\@types\range-parser" t="IncludeRecursive" />
     <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\javascript\typings\express\4.16.1\node_modules\@types\serve-static" t="IncludeRecursive" />
-    <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\javascript\typings\mocha\5.2.0\node_modules\@types\mocha" t="IncludeRecursive" />
+    <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\javascript\typings\mocha\8.0.3\node_modules\@types\mocha" t="IncludeRecursive" />
     <e p="C:\Users\justi\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_AjaxGenerator.-222984391.00" t="ExcludeRecursive" />
     <e p="C:\Users\justi\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
     <e p="C:\Users\justi\repos\ajaxGenerator\src" t="IncludeFlat">
@@ -200,8 +200,9 @@
         <e p="Exceptions" t="Include">
           <e p="JavaScriptReservedWordException.cs" t="Include" />
         </e>
-        <e p="IActionListDiscoveryService.cs" t="Include" />
-        <e p="IActionListRepository.cs" t="Include" />
+        <e p="IAjaxEndpoint.cs" t="Include" />
+        <e p="IAjaxEndpointDiscoveryService.cs" t="Include" />
+        <e p="IAjaxEndpointListRepository.cs" t="Include" />
         <e p="IAjaxGeneratorConfiguration.cs" t="Include" />
         <e p="IAjaxGeneratorService.cs" t="Include" />
         <e p="Internal" t="Include">
@@ -221,12 +222,12 @@
           </e>
         </e>
         <e p="ObjectModel" t="Include">
-          <e p="ActionInfo.cs" t="Include" />
-          <e p="ActionList.cs" t="Include" />
+          <e p="AjaxEndpointList.cs" t="Include" />
+          <e p="ControllerAction.cs" t="Include" />
         </e>
         <e p="package-lock.json" t="Include" />
         <e p="Repositories" t="Include">
-          <e p="ActionListRepository.cs" t="Include" />
+          <e p="AjaxEndpointRepository.cs" t="Include" />
           <e p="Repository.cs" t="Include" />
         </e>
         <e p="RvaJustin.AjaxGenerator.csproj" t="IncludeRecursive" />
@@ -247,10 +248,10 @@
         <e p="RvaJustin.AjaxGenerator.AspNet.Core.csproj" t="IncludeRecursive" />
         <e p="ServiceCollectionExtensions.cs" t="Include" />
         <e p="Services" t="Include">
-          <e p="ActionInfoBuilder.cs" t="Include" />
           <e p="AjaxGeneratorHelper.cs" t="Include" />
           <e p="AjaxGeneratorMiddleware.cs" t="Include" />
-          <e p="CoreActionListDiscoveryService.cs" t="Include" />
+          <e p="CoreAjaxEndpointDiscoveryService.cs" t="Include" />
+          <e p="CoreControllerActionBuilder.cs" t="Include" />
           <e p="CoreRouterService.cs" t="Include" />
           <e p="CoreScriptCompressorService.cs" t="Include" />
         </e>
@@ -269,8 +270,9 @@
         <e p="RvaJustin.AjaxGenerator.AspNet.Mvc.csproj" t="IncludeRecursive" />
         <e p="Services" t="Include">
           <e p="AjaxGeneratorHelper.cs" t="Include" />
-          <e p="MvcActionListDiscoveryService.cs" t="Include" />
+          <e p="MvcAjaxEndpointDiscoveryService.cs" t="Include" />
           <e p="MvcApplicationProvider.cs" t="Include" />
+          <e p="MvcControllerActionBuilder.cs" t="Include" />
           <e p="MvcRouterService.cs" t="Include" />
           <e p="MvcScriptCompressorService.cs" t="Include" />
           <e p="UnityDependencyResolver.cs" t="Include" />

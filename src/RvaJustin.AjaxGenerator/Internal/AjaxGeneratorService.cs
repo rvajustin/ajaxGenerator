@@ -64,11 +64,11 @@ namespace RvaJustin.AjaxGenerator.Internal
             return scriptCompressor.Compress(sb.ToString());
         }
 
-        private ActionInfo[] GetActions(IEnumerable<string> collections)
+        private ControllerAction[] GetActions(IEnumerable<string> collections)
         {
             var actionListRepository =
-                (IActionListRepository) serviceProvider.GetService(typeof(IActionListRepository));
-            var actions = new List<ActionInfo>();
+                (IAjaxEndpointListRepository) serviceProvider.GetService(typeof(IAjaxEndpointListRepository));
+            var actions = new List<ControllerAction>();
 
             foreach (var collection in collections)
             {
@@ -84,7 +84,7 @@ namespace RvaJustin.AjaxGenerator.Internal
             return actions.ToArray();
         }
 
-        private string BuildScript(IRouter router, IEnumerable<ActionInfo> actions)
+        private string BuildScript(IRouter router, IEnumerable<ControllerAction> actions)
         {
             var agObjectName = Configuration.JavaScriptObjectName;
             var sb = BuildBaseScript(agObjectName);
@@ -118,7 +118,7 @@ namespace RvaJustin.AjaxGenerator.Internal
 
         private static void AddFunctions(
             ref ISet<string> methods,
-            ActionInfo actionMethod,
+            ControllerAction actionMethod,
             string route,
             ref StringBuilder sbFunctions)
         {
@@ -146,7 +146,7 @@ namespace RvaJustin.AjaxGenerator.Internal
         }
 
         private static void AddDeclarations(
-            ActionInfo actionMethod,
+            ControllerAction actionMethod,
             ref ISet<string> areas,
             ref ISet<string> controllers,
             ref StringBuilder sbDeclarations)
@@ -171,7 +171,7 @@ namespace RvaJustin.AjaxGenerator.Internal
             }
         }
 
-        private static string BuildFunctionScript(ActionInfo actionMethod, string route)
+        private static string BuildFunctionScript(ControllerAction actionMethod, string route)
         {
             var parameters = "";
             var data = "";

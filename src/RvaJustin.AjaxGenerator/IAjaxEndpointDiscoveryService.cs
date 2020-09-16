@@ -3,8 +3,8 @@ using RvaJustin.AjaxGenerator.ObjectModel;
 
 namespace RvaJustin.AjaxGenerator
 {
-    public interface IActionListDiscoveryService
+    public interface IAjaxEndpointDiscoveryService
     {
-        IDictionary<string, ActionList> Discover();
+        IDictionary<string, AjaxEndpointList> Discover();
     }
 }

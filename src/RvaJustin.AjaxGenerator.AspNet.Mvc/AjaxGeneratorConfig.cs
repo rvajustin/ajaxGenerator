@@ -20,9 +20,9 @@ public static class AjaxGeneratorConfig
     {
         var container = new UnityContainer();
 
-        container.RegisterType<IActionListDiscoveryService, MvcActionListDiscoveryService>(
+        container.RegisterType<IAjaxEndpointDiscoveryService, MvcAjaxEndpointDiscoveryService>(
             new SingletonLifetimeManager());
-        container.RegisterType<IActionListRepository, ActionListRepository>(new SingletonLifetimeManager());
+        container.RegisterType<IAjaxEndpointListRepository, AjaxEndpointRepository>(new SingletonLifetimeManager());
         container.RegisterType<IScriptCompressor, MvcScriptCompressorService>(new SingletonLifetimeManager());
         container.RegisterType<AjaxGeneratorHelper>(new ContainerControlledLifetimeManager());
         container.RegisterFactory<IAjaxGeneratorService>(c
