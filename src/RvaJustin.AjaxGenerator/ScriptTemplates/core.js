@@ -1,15 +1,23 @@
 ﻿(function() {
     const self = { };
-    const u = 'undefined';
+    const u = "undefined";
     const w = window;
 
-    function _ajax(method, url, id, area, controller, action, data, ignoreErrors, options) {
+    function _ajax(method, url, id, path, data, ignoreErrors, options) {
+        for (let key in data) {
+            if (typeof data[key] !== u) {
+                let parameter = "{" + key + "}";
+                if (url.includes(parameter)) {
+                    url = url.replace(parameter, data[key]);
+                    delete data[key];
+                }
+            }
+        }
+        
         const defaultOptions = {
             method: method,
             url: url,
-            area: area,
-            controller: controller,
-            action: action,
+            path: path,
             ignoreErrors: ignoreErrors || false
         };
 

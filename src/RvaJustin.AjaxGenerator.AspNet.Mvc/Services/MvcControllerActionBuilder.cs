@@ -16,7 +16,7 @@ namespace RvaJustin.AjaxGenerator.AspNet.Mvc.Services
                 .OfType<AjaxAttribute>().FirstOrDefault();
             var controller = actionMethod?.DeclaringType?.Name.Replace("Controller", string.Empty);
 
-            var action = new ControllerAction(
+            controllerAction = new ControllerAction(
                 Guid.NewGuid().ToString(),
                 "{controller}/{action}",
                 string.Empty,

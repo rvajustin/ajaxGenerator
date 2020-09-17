@@ -200,6 +200,7 @@
         <e p="Exceptions" t="Include">
           <e p="JavaScriptReservedWordException.cs" t="Include" />
         </e>
+        <e p="IAjaxBehavior.cs" t="Include" />
         <e p="IAjaxEndpoint.cs" t="Include" />
         <e p="IAjaxEndpointDiscoveryService.cs" t="Include" />
         <e p="IAjaxEndpointListRepository.cs" t="Include" />
@@ -212,6 +213,7 @@
           <e p="JavaScriptUtilities.cs" t="Include" />
           <e p="Resources.cs" t="Include" />
         </e>
+        <e p="IRoutableEndpoint.cs" t="Include" />
         <e p="IRouter.cs" t="Include" />
         <e p="IScriptCompressor.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -281,6 +283,7 @@
       </e>
       <e p="RvaJustin.AjaxGenerator.OpenApi" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="IOpenApiSpecificationProvider.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -288,7 +291,20 @@
             </e>
           </e>
         </e>
+        <e p="ObjectModel" t="Include">
+          <e p="EndpointBehavior.cs" t="Include" />
+          <e p="OpenApiEndpoint.cs" t="Include" />
+          <e p="OpenApiSpecificationProviderList.cs" t="Include" />
+        </e>
+        <e p="OpenApiSpecificationProvider.cs" t="Include" />
+        <e p="OpenApiSpecificationProviderFormat.cs" t="Include" />
+        <e p="OpenApiSpecificationProviderSource.cs" t="Include" />
         <e p="RvaJustin.AjaxGenerator.OpenApi.csproj" t="IncludeRecursive" />
+        <e p="ServiceCollectionExtensions.cs" t="Include" />
+        <e p="Services" t="Include">
+          <e p="OpenApiEndpointBuilder.cs" t="Include" />
+          <e p="OpenApiEndpointDiscoveryService.cs" t="Include" />
+        </e>
       </e>
     </e>
   </component>

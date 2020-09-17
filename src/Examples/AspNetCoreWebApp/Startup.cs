@@ -1,8 +1,11 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RvaJustin.AjaxGenerator.OpenApi;
 
 namespace AspNetCoreWebApp
 {
@@ -19,13 +22,22 @@ namespace AspNetCoreWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            
+
             // Add and configure AjaxGenerator services
-            services.AddAjaxGenerator(c =>
-            {
-                c.SetCompressScript(true)
-                    .SetErrorCallback("console.log");
-            });
+            services
+                .AddAjaxGenerator(c =>
+                {
+                    c.SetCompressScript(false)
+                        .SetErrorCallback("console.log");
+                })
+                .AddOpenApiAjaxGenerator(
+                    OpenApiSpecificationProvider
+                        .FromUrl(
+                            OpenApiSpecificationProviderFormat.Json,
+                            "pets",
+                            s => true,
+                            new Uri("https://petstore3.swagger.io/api/v3/openapi.json"),
+                            new HostString("https://petstore3.swagger.io")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

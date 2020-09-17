@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using RvaJustin.AjaxGenerator.ObjectModel;
+using Newtonsoft.Json;
 
 namespace RvaJustin.AjaxGenerator.Internal
 {
@@ -39,14 +39,14 @@ namespace RvaJustin.AjaxGenerator.Internal
         {
             var sb = new StringBuilder();
             var allCollections = collections.Union(Configuration.GlobalIncludes);
-            var actions = GetActions(allCollections);
+            var ajaxEndpoints = GetAjaxEndpoints(allCollections);
 
-            if (!actions.Any())
+            if (!ajaxEndpoints.Any())
             {
                 return string.Empty;
             }
 
-            sb.Append(BuildScript(router, actions));
+            sb.Append(BuildScript(router, ajaxEndpoints));
             return CompressScript(sb);
         }
 
@@ -64,11 +64,11 @@ namespace RvaJustin.AjaxGenerator.Internal
             return scriptCompressor.Compress(sb.ToString());
         }
 
-        private ControllerAction[] GetActions(IEnumerable<string> collections)
+        private IAjaxEndpoint[] GetAjaxEndpoints(IEnumerable<string> collections)
         {
             var actionListRepository =
                 (IAjaxEndpointListRepository) serviceProvider.GetService(typeof(IAjaxEndpointListRepository));
-            var actions = new List<ControllerAction>();
+            var actions = new List<IAjaxEndpoint>();
 
             foreach (var collection in collections)
             {
@@ -84,30 +84,42 @@ namespace RvaJustin.AjaxGenerator.Internal
             return actions.ToArray();
         }
 
-        private string BuildScript(IRouter router, IEnumerable<ControllerAction> actions)
+        private string BuildScript(IRouter router, IEnumerable<IAjaxEndpoint> ajaxEndpoints)
         {
             var agObjectName = Configuration.JavaScriptObjectName;
             var sb = BuildBaseScript(agObjectName);
             var sbDeclarations = new StringBuilder();
             var sbFunctions = new StringBuilder();
 
-            ISet<string> areas = new HashSet<string>();
-            ISet<string> controllers = new HashSet<string>();
+            ISet<string> declarations = new HashSet<string>();
             ISet<string> methods = new HashSet<string>();
 
-            foreach (var actionMethod in actions)
+            foreach (var ajaxEndpoint in ajaxEndpoints)
             {
-                // todo: support custom route tokens
-                var route = string.IsNullOrEmpty(actionMethod.Area)
-                    ? router.GetUrl(actionMethod.Controller, actionMethod.Action)
-                    : router.GetUrl(actionMethod.Area, actionMethod.Controller, actionMethod.Action);
+                string route;
+                if (ajaxEndpoint is IRoutableEndpoint routableEndpoint)
+                {
+                    // todo: support custom route tokens
+                    JavaScriptUtilities.CheckReservedWord(routableEndpoint.Area, "Formatted area");
+                    JavaScriptUtilities.CheckReservedWord(routableEndpoint.Controller, "Formatted controller");
+                    JavaScriptUtilities.CheckReservedWord(routableEndpoint.Action, "Formatted action");
+                    
+                    route = string.IsNullOrEmpty(routableEndpoint.Area)
+                        ? router.GetUrl(routableEndpoint.Controller,routableEndpoint.Action)
+                        : router.GetUrl(routableEndpoint.Area, routableEndpoint.Controller, routableEndpoint.Action);
+                }
+                else
+                {
+                    foreach (var segment in ajaxEndpoint.Path)
+                    {
+                        JavaScriptUtilities.CheckReservedWord(segment, "Path segment");
+                    }
 
-                JavaScriptUtilities.CheckReservedWord(actionMethod.Area, "Formatted area");
-                JavaScriptUtilities.CheckReservedWord(actionMethod.Controller, "Formatted controller");
-                JavaScriptUtilities.CheckReservedWord(actionMethod.Action, "Formatted action");
+                    route = ajaxEndpoint.Url;
+                }
 
-                AddDeclarations(actionMethod, ref areas, ref controllers, ref sbDeclarations);
-                AddFunctions(ref methods, actionMethod, route, ref sbFunctions);
+                AddDeclarations(ajaxEndpoint, ref sbDeclarations, ref declarations);
+                AddFunctions(ajaxEndpoint, ref sbFunctions, ref methods, route);
             }
 
             sb = sb.Replace("//**DECLARATIONS**//", sbDeclarations.ToString());
@@ -117,19 +129,19 @@ namespace RvaJustin.AjaxGenerator.Internal
         }
 
         private static void AddFunctions(
+            IAjaxEndpoint ajaxEndpoint,
+            ref StringBuilder sbFunctions, 
             ref ISet<string> methods,
-            ControllerAction actionMethod,
-            string route,
-            ref StringBuilder sbFunctions)
+            string route)
         {
-            if (methods.Contains(actionMethod.Id))
+            if (methods.Contains(ajaxEndpoint.Id))
             {
                 return;
             }
 
-            var functionScript = BuildFunctionScript(actionMethod, route);
+            var functionScript = BuildFunctionScript(ajaxEndpoint, route);
             sbFunctions.AppendLine(functionScript);
-            methods.Add(actionMethod.Id);
+            methods.Add(ajaxEndpoint.Id);
         }
 
         private StringBuilder BuildBaseScript(string agObjectName)
@@ -146,59 +158,65 @@ namespace RvaJustin.AjaxGenerator.Internal
         }
 
         private static void AddDeclarations(
-            ControllerAction actionMethod,
-            ref ISet<string> areas,
-            ref ISet<string> controllers,
-            ref StringBuilder sbDeclarations)
+            IAjaxEndpoint ajaxEndpoint,
+            ref StringBuilder sbDeclarations,
+            ref ISet<string> declarations)
         {
-            if (!string.IsNullOrEmpty(actionMethod.Area) && !areas.Contains(actionMethod.Area))
-            {
-                sbDeclarations.AppendLine(
-                    @$"if (typeof self.{actionMethod.Area} == u) self.{actionMethod.Area} = {{ }};");
-                if (!controllers.Contains(actionMethod.Controller))
-                {
-                    sbDeclarations.AppendLine(
-                        @$"if (typeof self.{actionMethod.Area}.{actionMethod.Controller} == u) self.{actionMethod.Area}.{actionMethod.Controller} = {{ }};");
-                    areas.Add(actionMethod.Area);
-                }
-            }
+            var declaration = string.Empty;
+            var queue = new Queue<string>(ajaxEndpoint.Path);
 
-            if (!controllers.Contains(actionMethod.Controller))
+            while (queue.Any())
             {
+                var segment = queue.Dequeue();
+                declaration += (declaration.Length > 0 ? "." : string.Empty) + segment;
+
+                if (declarations.Contains(declaration) || !queue.Any())
+                {
+                    continue;
+                }
+
+                declarations.Add(declaration);
                 sbDeclarations.AppendLine(
-                    @$"if (typeof self.{actionMethod.Controller} == u) self.{actionMethod.Controller} = {{ }};");
-                controllers.Add(actionMethod.Controller);
+                    @$"if (typeof self.{declaration} == u) self.{declaration} = {{ }};");
             }
         }
 
-        private static string BuildFunctionScript(ControllerAction actionMethod, string route)
+        private static string BuildFunctionScript(IAjaxEndpoint ajaxEndpoint, string route)
         {
             var parameters = "";
             var data = "";
 
-            foreach (var parameter in actionMethod.Parameters)
+            foreach (var parameter in ajaxEndpoint.Parameters)
             {
                 JavaScriptUtilities.CheckReservedWord(parameter, "Literal parameter");
                 parameters = parameters + (parameters.Length > 0 ? ", " : "") + parameter;
                 data = data + (data.Length > 0 ? ", " : "") + parameter + ":" + parameter;
             }
 
-            var functionName = string.IsNullOrEmpty(actionMethod.Area)
-                ? $"self.{actionMethod.Controller}.{actionMethod.Action}"
-                : $"self.{actionMethod.Area}.{actionMethod.Controller}.{actionMethod.Action}";
+            var functionName = "self." + string.Join(".", ajaxEndpoint.Path);
+            var bodyParameter = ajaxEndpoint.BodyParameter ?? $"{{ {data} }}";
+
+            if (parameters.Length > 0)
+            {
+                parameters += ", ";
+            }
 
             var functionScript =
-                $"{functionName} = function ({parameters}, ignoreErrors, options) " +
+                $"{functionName} = function ({parameters}ignoreErrors, options) " +
                 $"{{ return _ajax(" +
-                $"'{actionMethod.AjaxBehavior.Methods[0]}', " + //http method
+                $"'{ajaxEndpoint.Behavior.Methods[0]}', " + //http method
                 $"'{route}', " + //url
-                $"'{actionMethod.Id}', " + //id
-                $"'{actionMethod.Area}', " + // area
-                $"'{actionMethod.Controller}', " + // controller
-                $"'{actionMethod.Action}', " + // action
-                $"{{ {data} }}, " + // parameters as object
+                $"'{ajaxEndpoint.Id}', " + //id
+                $"{JsonConvert.SerializeObject(ajaxEndpoint.Path)}, " + // path
+                $"{bodyParameter}, " + // parameters as object
                 $"ignoreErrors || false, " + // ignore errors flag
-                $"options || {{ }}); }};"; // additional options
+                $"options || {{ }}); }}"; // additional options
+            
+            if (ajaxEndpoint.Metadata != null)
+            {
+                functionScript +=
+                    $"{Environment.NewLine}{functionName}._metadata = {JsonConvert.SerializeObject(ajaxEndpoint.Metadata, Formatting.Indented)}"; // metadata
+            }
 
             return functionScript;
         }

@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\RvaJustin.AjaxGenerator.AspNet.Core\RvaJustin.AjaxGenerator.AspNet.Core.csproj" />
+      <ProjectReference Include="..\..\RvaJustin.AjaxGenerator.OpenApi\RvaJustin.AjaxGenerator.OpenApi.csproj" />
       <ProjectReference Include="..\..\RvaJustin.AjaxGenerator\RvaJustin.AjaxGenerator.csproj" />
     </ItemGroup>
 

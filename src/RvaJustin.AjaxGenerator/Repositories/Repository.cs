@@ -6,8 +6,8 @@ namespace RvaJustin.AjaxGenerator.Repositories
     public abstract class Repository<TValue>
     {
         private readonly ConcurrentDictionary<string, TValue> data = new ConcurrentDictionary<string, TValue>();
-        
-        internal Repository()
+
+        protected Repository()
         {
             
         }

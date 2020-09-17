@@ -1,14 +1,16 @@
-﻿using RvaJustin.AjaxGenerator.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Linq;
+using RvaJustin.AjaxGenerator.ObjectModel;
 
 namespace RvaJustin.AjaxGenerator.Repositories
 {
     public sealed class AjaxEndpointRepository : Repository<AjaxEndpointList>, IAjaxEndpointListRepository
     {
-        private readonly IAjaxEndpointDiscoveryService ajaxEndpointDiscoveryService;
+        private readonly IAjaxEndpointDiscoveryService[] ajaxEndpointDiscoveryServices;
 
-        public AjaxEndpointRepository(IAjaxEndpointDiscoveryService ajaxEndpointDiscoveryService)
+        public AjaxEndpointRepository(IEnumerable<IAjaxEndpointDiscoveryService> ajaxEndpointDiscoveryServices)
         {
-            this.ajaxEndpointDiscoveryService = ajaxEndpointDiscoveryService;
+            this.ajaxEndpointDiscoveryServices = ajaxEndpointDiscoveryServices.ToArray();
         }
 
         public override void Set(string key, AjaxEndpointList value)
@@ -29,8 +31,24 @@ namespace RvaJustin.AjaxGenerator.Repositories
             {
                 return;
             }
-            
-            var data = ajaxEndpointDiscoveryService.Discover();
+
+            var data = new Dictionary<string, AjaxEndpointList>();
+            foreach (var ajaxEndpointDiscoveryService in ajaxEndpointDiscoveryServices)
+            {
+                var discoveredEndpoints = ajaxEndpointDiscoveryService.Discover();
+                foreach (var discoveredEndpoint in discoveredEndpoints)
+                {
+                    if (!data.ContainsKey(discoveredEndpoint.Key))
+                    {
+                        data[discoveredEndpoint.Key] = new AjaxEndpointList();
+                    }
+
+                    foreach (var endpoint in discoveredEndpoint.Value)
+                    {
+                        data[discoveredEndpoint.Key].Add(endpoint);
+                    }
+                }
+            }
             ReplaceValues(data);
         }
     }

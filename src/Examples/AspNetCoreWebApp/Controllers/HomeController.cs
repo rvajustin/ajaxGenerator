@@ -15,16 +15,19 @@ namespace AspNetCoreWebApp.Controllers
             _logger = logger;
         }
 
+        [Ajax("samples", "GET")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Ajax("samples", "GET")]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [Ajax("samples", "GET")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

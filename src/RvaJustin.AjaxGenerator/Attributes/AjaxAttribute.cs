@@ -4,9 +4,8 @@ using System.Net.Http;
 
 namespace RvaJustin.AjaxGenerator.Attributes 
 {
-    
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
-    public class AjaxAttribute : Attribute
+    public class AjaxAttribute : Attribute, IAjaxBehavior
     {
         
         #region Constructors and Destructors

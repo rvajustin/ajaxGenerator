@@ -32,12 +32,12 @@ namespace RvaJustin.AjaxGenerator.AspNet.Core.Services
                     continue;
                 }
                 
-                if (!dictionary.ContainsKey(method.AjaxBehavior.Collection))
+                if (!dictionary.ContainsKey(method.Behavior.Collection))
                 {
-                    dictionary[method.AjaxBehavior.Collection] = new AjaxEndpointList();
+                    dictionary[method.Behavior.Collection] = new AjaxEndpointList();
                 }
 
-                dictionary[method.AjaxBehavior.Collection].Add(method);
+                dictionary[method.Behavior.Collection].Add(method);
             }
 
             return dictionary;

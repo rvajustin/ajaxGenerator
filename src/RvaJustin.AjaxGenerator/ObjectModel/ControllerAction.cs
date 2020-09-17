@@ -2,12 +2,11 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using RvaJustin.AjaxGenerator.Attributes;
 
 namespace RvaJustin.AjaxGenerator.ObjectModel
 {
     [DebuggerDisplay("Action {Action} for {AjaxBehavior.Methods[0],nq} in {Controller}")]
-    public sealed class ControllerAction : IAjaxEndpoint
+    public sealed class ControllerAction : IAjaxEndpoint, IRoutableEndpoint
     {
         public ControllerAction(
             string id,
@@ -17,7 +16,7 @@ namespace RvaJustin.AjaxGenerator.ObjectModel
             string action,
             IEnumerable<string> parameters,
             IDictionary<string, string> routeValues,
-            AjaxAttribute behavior)
+            IAjaxBehavior behavior)
         {
             Id = id;
             Area = area;
@@ -25,17 +24,23 @@ namespace RvaJustin.AjaxGenerator.ObjectModel
             Action = action;
             Parameters = parameters.ToArray();
             RouteValues = new ReadOnlyDictionary<string, string>(routeValues);
-            AjaxBehavior = behavior;
-            Route = route;
+            Behavior = behavior;
+            Url = route;
         }
 
-        public AjaxAttribute AjaxBehavior { get; }
+        public IAjaxBehavior Behavior { get; }
         public string Id { get; }
         public string Area { get; }
         public string Controller { get; }
         public string Action { get; }
         public string[] Parameters { get; }
         public IReadOnlyDictionary<string, string> RouteValues { get; }
-        public string Route { get; }
+        public string Url { get; }
+        public string[] Path => !string.IsNullOrEmpty(Area)
+            ? new[] { Area, Controller, Action }
+            : new[] {Controller, Action};
+
+        public object Metadata { get; set; }
+        public string BodyParameter { get;set; }
     }
 }

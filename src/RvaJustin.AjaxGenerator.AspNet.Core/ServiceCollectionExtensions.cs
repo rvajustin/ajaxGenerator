@@ -8,16 +8,23 @@ using RvaJustin.AjaxGenerator.Repositories;
 // ReSharper disable once CheckNamespace
 public static class AjaxGeneratorServiceCollectionExtensions
 {
+
+    public static ServiceDescriptor AjaxGeneratorServiceDescriptor { get; private set; } 
+    
     public static IServiceCollection AddAjaxGenerator(
         this IServiceCollection services,
         Action<IAjaxGeneratorConfiguration> configureService)
     {
-        services.AddSingleton<IAjaxEndpointDiscoveryService, CoreAjaxEndpointDiscoveryService>();
+        AjaxGeneratorServiceDescriptor = new ServiceDescriptor(
+            typeof(IAjaxGeneratorService), 
+            serviceProvider => AjaxGeneratorService.Build(serviceProvider, configureService),
+            ServiceLifetime.Scoped);
+        
+        services.AddTransient<IAjaxEndpointDiscoveryService, CoreAjaxEndpointDiscoveryService>();
         services.AddSingleton<IAjaxEndpointListRepository, AjaxEndpointRepository>();
         services.AddSingleton<IScriptCompressor, CoreScriptCompressorService>();
         services.AddScoped<AjaxGeneratorHelper>();
-        services.AddScoped<IAjaxGeneratorService>(serviceProvider
-            => AjaxGeneratorService.Build(serviceProvider, configureService));
+        services.Add(AjaxGeneratorServiceDescriptor);
         
         return services;
     }
