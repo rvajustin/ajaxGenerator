@@ -4,12 +4,12 @@ namespace RvaJustin.AjaxGenerator.OpenApi.ObjectModel
 {
     public class EndpointBehavior : IAjaxBehavior
     {
-        public string Collection { get; set; }
-        public HttpMethod[] Methods { get; set; }
+        public string Collection { get; }
+        public HttpMethod Method { get; }
 
         public EndpointBehavior(HttpMethod method, string collection)
         {
-            Methods = new[] {method};
+            Method = method;
             Collection = collection;
         }
     }

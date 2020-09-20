@@ -204,7 +204,7 @@ namespace RvaJustin.AjaxGenerator.Internal
             var functionScript =
                 $"{functionName} = function ({parameters}ignoreErrors, options) " +
                 $"{{ return _ajax(" +
-                $"'{ajaxEndpoint.Behavior.Methods[0]}', " + //http method
+                $"'{ajaxEndpoint.Behavior.Method}', " + //http method
                 $"'{route}', " + //url
                 $"'{ajaxEndpoint.Id}', " + //id
                 $"{JsonConvert.SerializeObject(ajaxEndpoint.Path)}, " + // path

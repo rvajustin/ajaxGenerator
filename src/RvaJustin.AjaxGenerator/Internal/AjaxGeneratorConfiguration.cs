@@ -6,8 +6,6 @@ namespace RvaJustin.AjaxGenerator.Internal
     internal class AjaxGeneratorConfiguration : IAjaxGeneratorConfiguration
     {
         
-        #region Public Properties
-
         public bool? CompressScript { get; set; }
 
         public string ErrorCallback { get; set; } = "console.log";
@@ -46,8 +44,6 @@ namespace RvaJustin.AjaxGenerator.Internal
             IncludeAssemblies = values;
             return this;
         }
-
-        #endregion
 
     }
 }

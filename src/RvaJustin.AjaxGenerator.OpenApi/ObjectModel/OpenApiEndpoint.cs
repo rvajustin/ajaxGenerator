@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-
+﻿
 namespace RvaJustin.AjaxGenerator.OpenApi.ObjectModel
 {
     public class OpenApiEndpoint : IAjaxEndpoint
@@ -8,10 +6,9 @@ namespace RvaJustin.AjaxGenerator.OpenApi.ObjectModel
         public IAjaxBehavior Behavior { get; }
         public string Id { get; }
         public string[] Parameters { get; }
-        public IReadOnlyDictionary<string, string> RouteValues { get; }
         public string Url { get; }
         public string[] Path { get; }
-        public object Metadata { get; set; }
+        public object Metadata { get; }
         public string BodyParameter { get; }
 
         public OpenApiEndpoint(string id, string url, object metadata, IAjaxBehavior behavior, string[] path,

@@ -5,5 +5,5 @@ public interface IAjaxBehavior
 {
     string Collection { get; }
 
-    HttpMethod[] Methods { get; }
+    HttpMethod Method { get; }
 }

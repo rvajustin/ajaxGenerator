@@ -10,8 +10,7 @@ namespace RvaJustin.AjaxGenerator.AspNet.Mvc.Services
         private readonly IAjaxGeneratorService ajaxGeneratorService;
         private readonly string axiosScript;
 
-        public AjaxGeneratorHelper(
-            IAjaxGeneratorService ajaxGeneratorService)
+        public AjaxGeneratorHelper(IAjaxGeneratorService ajaxGeneratorService)
         {
             this.ajaxGeneratorService = ajaxGeneratorService;
 
